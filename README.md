@@ -1,0 +1,1 @@
+# practica1-vision_artificial
