@@ -18,7 +18,7 @@ imagenes_test = []
 FLANN_INDEX_LSH = 6
 index_params = dict(algorithm=FLANN_INDEX_LSH,
                     table_number=12,  # 12
-                    key_size=14,  # 20
+                    key_size=15,  # 20
                     multi_probe_level=2)  # 2
 
 search_params = dict(checks=100)  # or pass empty dictionary
@@ -28,6 +28,7 @@ def carga_imagenes_carpeta(nombre_carpeta):
     print("Se va a iniciar la carga de las imagenes de", nombre_carpeta)
     print("###################################################")
     time.sleep(2)
+
     for nombre_imagen in os.listdir(nombre_carpeta):
         imagen = cv2.imread(os.path.join(nombre_carpeta, nombre_imagen), 0)
         if imagen is not None:
@@ -38,7 +39,7 @@ def carga_imagenes_carpeta(nombre_carpeta):
     print("FIN")
     print()
     time.sleep(1)
-    
+
     return imagenes_train
 
 
@@ -59,21 +60,21 @@ def deteccion_orb(imagenes):
     for i in range(len(imagenes)):
         print("ORB para", i)
         (kp, des) = orb.detectAndCompute(imagenes[i], None)
-        keypoints.append(kp)
-        flann.add([des])
+        keypoints.append(kp)  # se guarda la informacion de cada keypoint
+        flann.add([des])  # se almacenan los descriptores
 
     # A knnMatch hay que pasarle la estructura con los descriptores almacenados
     matches = flann.knnMatch(np.array([[8, 8, 8]], dtype=np.uint8), k=1)
-    
+
     print("###################################################")
     print("FIN")
     print()
     time.sleep(1)
-    
+
     for m in matches:
         for n in m:
             print("Res - dist:", n.distance, " img: ", n.imgIdx, " queryIdx: ", n.queryIdx, " trainIdx:", n.trainIdx)
-
+            
 
 def main():
     imgs = carga_imagenes_carpeta(CARPETA_TRAIN)
