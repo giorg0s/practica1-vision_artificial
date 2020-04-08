@@ -1,4 +1,4 @@
-#/usr/bin/python3
+# /usr/bin/python3
 
 import cv2
 import time
@@ -59,6 +59,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-
-
