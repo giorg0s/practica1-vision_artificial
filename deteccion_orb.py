@@ -89,7 +89,7 @@ def votacion_hough(centro, training_kps, test_kps):
     return vector
 
 
-def orb_processing(imagen, training_x, training_y):
+def procesamiento_img_orb(imagen, training_x, training_y):
     orb = cv2.ORB_create(nfeatures=100, nlevels=4, scaleFactor=1.3)
 
     original_size = imagen.shape[::-1]  # tamanio original de la imgane
@@ -125,18 +125,20 @@ def orb_processing(imagen, training_x, training_y):
 
     # img_final = cv2.resize(img_final, dsize=original_size, interpolation=cv2.INTER_CUBIC)
     cv2.imshow("Resultado de la imagen", img_procesada)
-    cv2.waitKey()
+    cv2.waitKey(1)
+
+    time.sleep(2)
 
     # print(vector_votacion)
 
 
 # En caso de que se quiera procesar mas de una imagen se define la siguiente funcion
-def procesamiento_img(test_imgs, training_x, training_y):
+def detector_coches_orb(test_imgs, training_x, training_y):
     for i, img in enumerate(test_imgs):
         print("=============================================================================")
         print("Para la imagen de test", i)
 
-        orb_processing(img, training_x, training_y)
+        procesamiento_img_orb(img, training_x, training_y)
 
 
 def main():
@@ -145,7 +147,7 @@ def main():
     test_imgs = carga_imagenes_carpeta(CARPETA_TEST)
 
     (tr_x, tr_y) = entrenamiento_orb(training_imgs)
-    procesamiento_img(test_imgs, tr_x, tr_y)
+    detector_coches_orb(test_imgs, tr_x, tr_y)
 
 
 if __name__ == '__main__':

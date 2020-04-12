@@ -36,7 +36,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Python" />
   </component>
-  <component name="RunManager" selected="Python.deteccion_video">
+  <component name="RunManager" selected="Python.deteccion_haar">
     <configuration name="deteccion_haar" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="practica_obligatoria_1" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -144,9 +144,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.deteccion_video" />
         <item itemvalue="Python.deteccion_haar" />
         <item itemvalue="Python.deteccion_orb" />
+        <item itemvalue="Python.deteccion_video" />
         <item itemvalue="Python.deteccion_orb (2)" />
         <item itemvalue="Python.deteccion_orb (1)" />
       </list>
@@ -193,22 +193,22 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="323" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1585911705559" />
-    <state width="1345" height="163" key="GridCell.Tab.0.bottom" timestamp="1586722940664">
+    <state width="1345" height="163" key="GridCell.Tab.0.bottom" timestamp="1586723465671">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="163" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1586722940664" />
-    <state width="1345" height="163" key="GridCell.Tab.0.center" timestamp="1586722940664">
+    <state width="1345" height="163" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1586723465671" />
+    <state width="1345" height="163" key="GridCell.Tab.0.center" timestamp="1586723465671">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="163" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1586722940664" />
-    <state width="1345" height="163" key="GridCell.Tab.0.left" timestamp="1586722940664">
+    <state width="1345" height="163" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1586723465671" />
+    <state width="1345" height="163" key="GridCell.Tab.0.left" timestamp="1586723465671">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="163" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1586722940664" />
-    <state width="1345" height="163" key="GridCell.Tab.0.right" timestamp="1586722940664">
+    <state width="1345" height="163" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1586723465671" />
+    <state width="1345" height="163" key="GridCell.Tab.0.right" timestamp="1586723465671">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="163" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1586722940664" />
+    <state width="1345" height="163" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1586723465671" />
     <state width="1345" height="223" key="GridCell.Tab.1.bottom" timestamp="1586716723943">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

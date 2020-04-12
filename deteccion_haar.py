@@ -11,6 +11,7 @@ CLASIFICADOR = 'assets/haar/coches.xml'
 # Se crea el cascade classifier
 cascade = cv2.CascadeClassifier(CLASIFICADOR)
 
+
 def carga_imagenes_carpeta(nombre_carpeta):
     imagenes = []
 
@@ -31,19 +32,21 @@ def carga_imagenes_carpeta(nombre_carpeta):
 
     return imagenes
 
+
 def procesamiento_img_haar(imagen):
     # Se convierte la imagen a escala de grises
     gray = cv2.cvtColor(imagen, cv2.COLOR_BGR2GRAY)
+    imagen_gris = cascade.detectMultiScale(gray, 1.02, minNeighbors=5, minSize=(50, 50))
 
-    coches = cascade.detectMultiScale(gray, 1.1, 1)
-
-    if coches is ():
+    if imagen_gris is ():
         print("No se ha encontrado coche")
-    for (x, y, w, h) in coches:
+    for (x, y, w, h) in imagen_gris:
         cv2.rectangle(imagen, (x, y), (x + w, y + h), (0, 255, 0), 2)
         cv2.imshow('Detector de coches', imagen)
         cv2.waitKey(1)
-    #cv2.destroyAllWindows()
+
+        time.sleep(1)
+    # cv2.destroyAllWindows()
 
 
 def detector_coches(imagenes):
