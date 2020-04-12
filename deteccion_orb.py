@@ -4,7 +4,6 @@ import cv2
 import numpy as np
 import os
 import time
-import statistics as stats
 import math
 
 CARPETA_TRAIN = 'img/train'
@@ -38,7 +37,6 @@ def carga_imagenes_carpeta(nombre_carpeta):
         if imagen is not None:
             imagenes.append(imagen)
             print("He leido la imagen ", nombre_imagen)
-            # time.sleep(.500)
     print("###################################################")
     print("FIN")
     print()
@@ -67,82 +65,87 @@ def entrenamiento_orb(training_imgs):
         training_keypoints.append(kps_training)  # se guarda la informacion de cada keypoint
         flann.add([des_training])  # se almacenan los descriptores
 
-    valor_x = list(set(training_img_size_x))[0] # Este valor se corresponde con la anchura de la imagen de training
-    valor_y = list(set(training_img_size_y))[0] # Este valor se corresponde con la altura de la imagen de training
+    valor_x = list(set(training_img_size_x))[0]  # Este valor se corresponde con la anchura de la imagen de training
+    valor_y = list(set(training_img_size_y))[0]  # Este valor se corresponde con la altura de la imagen de training
 
     print("###################################################")
     print("FIN")
     print()
 
-    return (valor_x, valor_y) # se devuelve el tamano de la imagen de entrenamiento (en este caso son todas iguales)
+    return (valor_x, valor_y)  # se devuelve el tamano de la imagen de entrenamiento (en este caso son todas iguales)
 
 
-def votacion_hough(centro, training_kps, kact):
+def votacion_hough(centro, training_kps, test_kps):
     vector = (centro[0] - training_kps.pt[0], centro[1] - training_kps.pt[1])
-    vector = (vector[0] * kact.size / training_kps.size, vector[1] * kact.size / training_kps.size)
+    vector = (vector[0] * test_kps.size / training_kps.size, vector[1] * test_kps.size / training_kps.size)
 
-    angulo = np.rad2deg(math.atan2(vector[1], vector[0])) + (kact.angle - training_kps.angle)
+    angulo = np.rad2deg(math.atan2(vector[1], vector[0])) + (test_kps.angle - training_kps.angle)
 
     modulo = np.sqrt(vector[0] * vector[0] + vector[1] * vector[1])
 
-    vector = (modulo * np.cos(angulo) + kact.pt[0], modulo * np.sin(angulo) + kact.pt[1])
+    vector = (modulo * np.cos(angulo) + test_kps.pt[0], modulo * np.sin(angulo) + test_kps.pt[1])
     vector = (np.uint8(vector[0] / 10), np.uint8(vector[1] / 10))
 
     return vector
 
 
-def procesamiento_img(test_imgs, training_x, training_y):
+def orb_processing(imagen, training_x, training_y):
     orb = cv2.ORB_create(nfeatures=100, nlevels=4, scaleFactor=1.3)
 
-    # Ha knnMatch hay que pasarle la estructura con los descriptores almacenados
+    original_size = imagen.shape[::-1]  # tamanio original de la imgane
+
+    img = cv2.resize(imagen, dsize=(training_x, training_y), interpolation=cv2.INTER_CUBIC)
+
+    (kps_test, des_test) = orb.detectAndCompute(img, None)
+    par = zip(kps_test, des_test)
+
+    # Se crea el vector de votacion a partir del tamano de la imagen reducido por un factor (en este caso 10 que es
+    # el que determina el enunciado)
+    img_size_y = np.uint8(imagen.shape[0] / 10)
+    img_size_x = np.uint8(imagen.shape[1] / 10)
+
+    vector_votacion = np.zeros((img_size_y, img_size_x), dtype=np.uint8)
+
+    for (kp, des) in par:
+        # Se obtienen los matches potenciales para cada imagen de test
+        matches = flann.knnMatch(des, k=5)
+        for vecinos in matches:
+            for m in vecinos:
+                vector = votacion_hough((225, 110), training_keypoints[m.imgIdx][m.trainIdx], kp)
+                if (vector[0] >= 0) & (vector[1] >= 0) & (vector[0] < (img_size_y - 1)) & (
+                        vector[1] < (img_size_x - 1)):
+                    vector_votacion[vector[0]][vector[1]] += 1
+
+    mejor_voto = vector_votacion.argmax()
+    coords = np.unravel_index(mejor_voto, vector_votacion.shape)
+
+    img_procesada = cv2.cvtColor(img, cv2.COLOR_GRAY2RGB)
+    cv2.circle(img_procesada, center=(np.uint(coords[0] * 10), np.uint8(coords[1] * 10)), radius=10, color=(0, 255, 0),
+                   thickness=2)
+
+    # img_final = cv2.resize(img_final, dsize=original_size, interpolation=cv2.INTER_CUBIC)
+    cv2.imshow("Resultado de la imagen", img_procesada)
+    cv2.waitKey()
+
+    # print(vector_votacion)
+
+
+# En caso de que se quiera procesar mas de una imagen se define la siguiente funcion
+def procesamiento_img(test_imgs, training_x, training_y):
     for i, img in enumerate(test_imgs):
         print("=============================================================================")
         print("Para la imagen de test", i)
 
-        img = cv2.resize(img, dsize=(training_x, training_y), interpolation=cv2.INTER_CUBIC)
-
-        (kps_test, des_test) = orb.detectAndCompute(img, None)
-        par = zip(kps_test, des_test)
-
-        img_size_y = np.uint8(test_imgs[i].shape[0] / 10)
-        img_size_x = np.uint8(test_imgs[i].shape[1] / 10)
-
-        # Se crea el vector de votacion a partir del tamano de la imagen reducido por un factor (en este caso 10 que es
-        # el que determina el enunciado)
-        vector_votacion = np.zeros((img_size_y, img_size_x), dtype=np.uint8)
-
-        for (kp, des) in par:
-            # Se obtienen los matches potenciales para cada imagen de test
-            matches = flann.knnMatch(des, k=5)
-
-            for vecinos in matches:
-                for m in vecinos:
-                    vector = votacion_hough((225,110), training_keypoints[m.imgIdx][m.trainIdx], kp)
-                    if (vector[0] >= 0) & (vector[1] >= 0) & (vector[0] < (img_size_y - 1)) & (
-                            vector[1] < (img_size_x - 1)):
-                        vector_votacion[vector[0]][vector[1]] += 1
-
-        coords = np.unravel_index(vector_votacion.argmax(), vector_votacion.shape)
-
-        for x in range(img.shape[0]):
-            for y in range(img.shape[1]):
-                img[coords[1] * 10][y] = 0
-                img[coords[1] * 10 - 10][y] = 0
-                img[x][coords[0] * 10] = 0
-                img[x][coords[0] * 10 - 10] = 0
-
-        cv2.imshow(str(i), img)
-        cv2.waitKey()
-
-    print(vector_votacion)
+        orb_processing(img, training_x, training_y)
 
 
 def main():
+    # Carga de imagenes
     training_imgs = carga_imagenes_carpeta(CARPETA_TRAIN)
     test_imgs = carga_imagenes_carpeta(CARPETA_TEST)
 
-    tamano_imgane = entrenamiento_orb(training_imgs)
-    procesamiento_img(test_imgs, *tamano_imgane)
+    (tr_x, tr_y) = entrenamiento_orb(training_imgs)
+    procesamiento_img(test_imgs, tr_x, tr_y)
 
 
 if __name__ == '__main__':

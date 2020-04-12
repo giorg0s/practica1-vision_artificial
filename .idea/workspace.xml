@@ -5,87 +5,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/deteccion_haar.py" beforeDir="false" afterPath="$PROJECT_DIR$/deteccion_haar.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/deteccion_orb.py" beforeDir="false" afterPath="$PROJECT_DIR$/deteccion_orb.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test10.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test11.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test12.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test13.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test14.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test15.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test16.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test17.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test18.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test19.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test20.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test21.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test22.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test23.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test24.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test25.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test26.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test27.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test28.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test29.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test30.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test31.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test32.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test33.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test8.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/test9.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train/frontal_1.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train/frontal_10.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train/frontal_11.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train/frontal_12.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train/frontal_13.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train/frontal_14.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train/frontal_15.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train/frontal_16.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train/frontal_17.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train/frontal_18.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train/frontal_19.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train/frontal_2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train/frontal_20.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train/frontal_21.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train/frontal_22.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train/frontal_23.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train/frontal_24.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train/frontal_25.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train/frontal_26.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train/frontal_27.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train/frontal_28.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train/frontal_29.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train/frontal_3.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train/frontal_30.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train/frontal_31.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train/frontal_32.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train/frontal_33.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train/frontal_34.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train/frontal_35.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train/frontal_36.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train/frontal_37.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train/frontal_38.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train/frontal_39.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train/frontal_4.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train/frontal_40.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train/frontal_41.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train/frontal_42.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train/frontal_43.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train/frontal_44.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train/frontal_45.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train/frontal_46.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train/frontal_47.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train/frontal_48.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train/frontal_5.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train/frontal_6.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train/frontal_7.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train/frontal_8.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/train/frontal_9.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/deteccion_video.py" beforeDir="false" afterPath="$PROJECT_DIR$/deteccion_video.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,6 +58,48 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="deteccion_orb (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="practica_obligatoria_1" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/AppData/Local/Temp/7zO83AB5482" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$USER_HOME$/AppData/Local/Temp/7zO83AB5482/deteccion_orb.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="deteccion_orb (2)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="practica_obligatoria_1" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/AppData/Local/Temp/7zOC05D4790" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$USER_HOME$/AppData/Local/Temp/7zOC05D4790/deteccion_orb.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="deteccion_orb" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="practica_obligatoria_1" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -180,33 +142,13 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="prueba" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="practica_obligatoria_1" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/prueba.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Python.deteccion_video" />
         <item itemvalue="Python.deteccion_haar" />
         <item itemvalue="Python.deteccion_orb" />
-        <item itemvalue="Python.prueba" />
+        <item itemvalue="Python.deteccion_orb (2)" />
+        <item itemvalue="Python.deteccion_orb (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -251,38 +193,38 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="323" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1585911705559" />
-    <state width="1345" height="186" key="GridCell.Tab.0.bottom" timestamp="1586352957366">
+    <state width="1345" height="163" key="GridCell.Tab.0.bottom" timestamp="1586722940664">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="186" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1586352957366" />
-    <state width="1345" height="186" key="GridCell.Tab.0.center" timestamp="1586352957366">
+    <state width="1345" height="163" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1586722940664" />
+    <state width="1345" height="163" key="GridCell.Tab.0.center" timestamp="1586722940664">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="186" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1586352957366" />
-    <state width="1345" height="186" key="GridCell.Tab.0.left" timestamp="1586352957365">
+    <state width="1345" height="163" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1586722940664" />
+    <state width="1345" height="163" key="GridCell.Tab.0.left" timestamp="1586722940664">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="186" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1586352957365" />
-    <state width="1345" height="186" key="GridCell.Tab.0.right" timestamp="1586352957366">
+    <state width="1345" height="163" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1586722940664" />
+    <state width="1345" height="163" key="GridCell.Tab.0.right" timestamp="1586722940664">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="186" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1586352957366" />
-    <state width="1345" height="223" key="GridCell.Tab.1.bottom" timestamp="1586204167369">
+    <state width="1345" height="163" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1586722940664" />
+    <state width="1345" height="223" key="GridCell.Tab.1.bottom" timestamp="1586716723943">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="223" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1586204167369" />
-    <state width="1345" height="223" key="GridCell.Tab.1.center" timestamp="1586204167369">
+    <state width="1345" height="223" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1586716723943" />
+    <state width="1345" height="223" key="GridCell.Tab.1.center" timestamp="1586716723943">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="223" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1586204167369" />
-    <state width="1345" height="223" key="GridCell.Tab.1.left" timestamp="1586204167369">
+    <state width="1345" height="223" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1586716723943" />
+    <state width="1345" height="223" key="GridCell.Tab.1.left" timestamp="1586716723943">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="223" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1586204167369" />
-    <state width="1345" height="223" key="GridCell.Tab.1.right" timestamp="1586204167369">
+    <state width="1345" height="223" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1586716723943" />
+    <state width="1345" height="223" key="GridCell.Tab.1.right" timestamp="1586716723943">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1345" height="223" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1586204167369" />
+    <state width="1345" height="223" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1586716723943" />
     <state x="418" y="85" key="RollbackChangesDialog" timestamp="1585911731779">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
