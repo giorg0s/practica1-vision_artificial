@@ -33,7 +33,7 @@ def carga_videos_carpeta(nombre_video):
             for (x, y, w, h) in coche:
                 cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
                 cv2.imshow('Detector de coches', frame)
-                out.write(cv2.resize(frame, dsize=(640,480), interpolation=cv2.INTER_CUBIC))
+                out.write(cv2.resize(frame, dsize=(640, 480), interpolation=cv2.INTER_CUBIC))
                 cv2.waitKey(1)
         else:
             break
