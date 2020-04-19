@@ -33,10 +33,12 @@ def carga_imagenes_carpeta(nombre_carpeta):
     time.sleep(2)
 
     for nombre_imagen in os.listdir(nombre_carpeta):
-        imagen = cv2.imread(os.path.join(nombre_carpeta, nombre_imagen), 0)
+        imagen = cv2.imread(os.path.join(nombre_carpeta, nombre_imagen))
         if imagen is not None:
             imagenes.append(imagen)
             print("He leido la imagen ", nombre_imagen)
+            # time.sleep(.500)
+
     print("###################################################")
     print("FIN")
     print()
@@ -58,6 +60,8 @@ def entrenamiento_orb(training_imgs):
     for i, img in enumerate(training_imgs):
         training_img_size_x.append(img.shape[1])
         training_img_size_y.append(img.shape[0])
+
+        img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
         # Se detectan los puntos de interes y se computan los descriptores con ORB
         print("ORB para", i)
@@ -94,15 +98,17 @@ def procesamiento_img_orb(imagen, training_x, training_y):
 
     original_size = imagen.shape[::-1]  # tamanio original de la imgane
 
-    img = cv2.resize(imagen, dsize=(training_x, training_y), interpolation=cv2.INTER_CUBIC)
+    imagen = cv2.cvtColor(imagen, cv2.COLOR_BGR2GRAY)
 
-    (kps_test, des_test) = orb.detectAndCompute(img, None)
+    imagen_resized = cv2.resize(imagen, dsize=(training_x, training_y), interpolation=cv2.INTER_CUBIC)
+
+    (kps_test, des_test) = orb.detectAndCompute(imagen_resized, None)
     par = zip(kps_test, des_test)
 
     # Se crea el vector de votacion a partir del tamano de la imagen reducido por un factor (en este caso 10 que es
     # el que determina el enunciado)
-    img_size_y = np.uint8(imagen.shape[0] / 10)
-    img_size_x = np.uint8(imagen.shape[1] / 10)
+    img_size_y = np.uint8(imagen_resized.shape[0] / 10)
+    img_size_x = np.uint8(imagen_resized.shape[1] / 10)
 
     vector_votacion = np.zeros((img_size_y, img_size_x), dtype=np.uint8)
 
@@ -119,26 +125,34 @@ def procesamiento_img_orb(imagen, training_x, training_y):
     mejor_voto = vector_votacion.argmax()
     coords = np.unravel_index(mejor_voto, vector_votacion.shape)
 
-    img_procesada = cv2.cvtColor(img, cv2.COLOR_GRAY2RGB)
-    cv2.circle(img_procesada, center=(np.uint(coords[0] * 10), np.uint8(coords[1] * 10)), radius=10, color=(0, 255, 0),
-                   thickness=2)
+    # El centro del circulo viene dado por las coordenadas del mejor vector resultante de la votacion, el radio es un
+    # valor arbitrario.
+    img_procesada = cv2.circle(imagen_resized, center=(np.uint(coords[0] * 10), np.uint8(coords[1] * 10)), radius=10,
+                               color=(0, 255, 0), thickness=2)
 
-    # img_final = cv2.resize(img_final, dsize=original_size, interpolation=cv2.INTER_CUBIC)
-    cv2.imshow("Resultado de la imagen", img_procesada)
-    cv2.waitKey(1)
+    # img_procesada = cv2.cvtColor(img_procesada, cv2.COLOR_GRAY2RGB)
 
+    # img_final = cv2.resize(img_procesada, dsize=original_size, interpolation=cv2.INTER_CUBIC)w
     time.sleep(2)
-
-    # print(vector_votacion)
+    return img_procesada
 
 
 # En caso de que se quiera procesar mas de una imagen se define la siguiente funcion
 def detector_coches_orb(test_imgs, training_x, training_y):
+    kernel = np.ones((5, 5), np.float32) / 25
     for i, img in enumerate(test_imgs):
         print("=============================================================================")
         print("Para la imagen de test", i)
 
-        procesamiento_img_orb(img, training_x, training_y)
+        dst = cv2.filter2D(img, -1, kernel)
+        img_salida = procesamiento_img_orb(dst, training_x, training_y)
+
+        cv2.imshow("Resultado de la imagen", img_salida)
+        if cv2.waitKey(15) & 0xFF == ord('q'):
+            break
+    cv2.destroyAllWindows()
+    print("=============================================================================")
+    print("FIN")
 
 
 def main():

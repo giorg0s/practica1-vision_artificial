@@ -4,6 +4,7 @@ import cv2
 import time
 import os
 import numpy as np
+from deteccion_orb import carga_imagenes_carpeta
 
 CARPETA_TEST = 'img/test'
 CLASIFICADOR = 'assets/haar/coches.xml'
@@ -12,51 +13,38 @@ CLASIFICADOR = 'assets/haar/coches.xml'
 cascade = cv2.CascadeClassifier(CLASIFICADOR)
 
 
-def carga_imagenes_carpeta(nombre_carpeta):
-    imagenes = []
-
-    print("Se va a iniciar la carga de las imagenes de", nombre_carpeta)
-    print("###################################################")
-    time.sleep(2)
-
-    for nombre_imagen in os.listdir(nombre_carpeta):
-        imagen = cv2.imread(os.path.join(nombre_carpeta, nombre_imagen))
-        if imagen is not None:
-            imagenes.append(imagen)
-            print("He leido la imagen ", nombre_imagen)
-            # time.sleep(.500)
-    print("###################################################")
-    print("FIN")
-    print()
-    time.sleep(1)
-
-    return imagenes
-
-
-def procesamiento_img_haar(imagen):
+def procesamiento_img_haar(imagen, contador):
     # Se convierte la imagen a escala de grises
     gray = cv2.cvtColor(imagen, cv2.COLOR_BGR2GRAY)
-    imagen_gris = cascade.detectMultiScale(gray, 1.02, minNeighbors=5, minSize=(50, 50))
+
+    # El código se basa en los ejemplos que se encuentran en la web: https://www.programcreek.com/python/example/79435/cv2.CascadeClassifier
+    imagen_eq = cv2.equalizeHist(gray)
+
+    imagen_gris = cascade.detectMultiScale(imagen_eq, scaleFactor=1.05, minNeighbors=5, minSize=(50, 50),
+                                           flags=cv2.CASCADE_SCALE_IMAGE)
 
     if imagen_gris is ():
-        print("No se ha encontrado coche")
+        print('ERROR')
     for (x, y, w, h) in imagen_gris:
         cv2.rectangle(imagen, (x, y), (x + w, y + h), (0, 255, 0), 2)
         cv2.imshow('Detector de coches', imagen)
-        cv2.waitKey(1)
 
+        cv2.waitKey(1)
         time.sleep(1)
+
+    cv2.imwrite(os.path.join('img', 'output', 'output_haar'+str(contador)+'.png'), imagen)
+
     # cv2.destroyAllWindows()
 
 
 def detector_coches(imagenes):
     for i, img in enumerate(imagenes):
         print("PROCESANDO IMAGEN", i)
-        procesamiento_img_haar(img)
+        procesamiento_img_haar(img, i)
 
 
 def main():
-    test_imgs = np.array(carga_imagenes_carpeta(CARPETA_TEST))
+    test_imgs = np.array(carga_imagenes_carpeta(CARPETA_TEST)) # se cargan las imagenes de test
     detector_coches(test_imgs)
 
 
