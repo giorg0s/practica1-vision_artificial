@@ -25,6 +25,8 @@ training_keypoints = []
 flann = cv2.FlannBasedMatcher(index_params, search_params)
 
 
+# FUENTE: https://stackoverflow.com/questions/30230592/loading-all-images-using-imread-from-a-given-folder/30230738
+
 def carga_imagenes_carpeta(nombre_carpeta):
     imagenes = []
 
@@ -81,10 +83,13 @@ def entrenamiento_orb(training_imgs):
 
 def votacion_hough(img, training_kps, test_kps):
     distancia_pts = ((img.shape[1] / 2) - training_kps.pt[0], (img.shape[0] / 2) - training_kps.pt[1])
-    distancia_pts_escalado = (distancia_pts[0] * test_kps.size / training_kps.size, distancia_pts[1] * test_kps.size / training_kps.size)
+    distancia_pts_escalado = (
+    distancia_pts[0] * test_kps.size / training_kps.size, distancia_pts[1] * test_kps.size / training_kps.size)
     angulo = np.rad2deg(math.atan2(distancia_pts_escalado[1], distancia_pts_escalado[0])) + test_kps.angle
 
-    vector = ((np.sqrt(distancia_pts_escalado[0]**2 + distancia_pts_escalado[1]**2)) * np.cos(angulo) + test_kps.pt[0], (np.sqrt(distancia_pts_escalado[0]**2 + distancia_pts_escalado[1]**2)) * np.sin(angulo) + test_kps.pt[1])
+    vector = (
+    (np.sqrt(distancia_pts_escalado[0] ** 2 + distancia_pts_escalado[1] ** 2)) * np.cos(angulo) + test_kps.pt[0],
+    (np.sqrt(distancia_pts_escalado[0] ** 2 + distancia_pts_escalado[1] ** 2)) * np.sin(angulo) + test_kps.pt[1])
     vector_reducido = (np.uint8(vector[0] / 10),
                        np.uint8(vector[1] / 10))  # El vector final se reduce con el factor fijado en el enunciado
 
@@ -150,7 +155,7 @@ def detector_coches_orb(test_imgs, training_x, training_y):
         cv2.imshow("Resultado de la imagen", img_salida)
         fin = time.time()
         tiempos.append(fin - inicio)
-        cv2.imwrite(os.path.join('img', 'output', 'output_orb' + str(i) + '.png'), img_salida)
+        # cv2.imwrite(os.path.join('img', 'output', 'output_orb' + str(i) + '.png'), img_salida)
 
         cv2.waitKey(1)
 
