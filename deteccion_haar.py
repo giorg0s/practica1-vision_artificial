@@ -3,6 +3,7 @@
 import cv2
 import time
 import os
+import logging
 import numpy as np
 from deteccion_orb import carga_imagenes_carpeta
 
@@ -23,14 +24,14 @@ def procesamiento_img_haar(imagen, contador):
     imagen_gris = cascade.detectMultiScale(imagen_eq, scaleFactor=1.05, minNeighbors=5, minSize=(50, 50),
                                            flags=cv2.CASCADE_SCALE_IMAGE)
 
-    if imagen_gris is ():
-        print('ERROR')
+    if len(imagen_gris) == 0:
+        logging.exception('No se ha encontrado coche')
     for (x, y, w, h) in imagen_gris:
         cv2.rectangle(imagen, (x, y), (x + w, y + h), (0, 255, 0), 2)
         cv2.imshow('Detector de coches', imagen)
 
         cv2.waitKey(1)
-        time.sleep(1)
+        # time.sleep(1)
 
     cv2.imwrite(os.path.join('img', 'output', 'output_haar'+str(contador)+'.png'), imagen)
 
@@ -38,9 +39,15 @@ def procesamiento_img_haar(imagen, contador):
 
 
 def detector_coches(imagenes):
+    tiempos = []
     for i, img in enumerate(imagenes):
+        inicio = time.time()
         print("PROCESANDO IMAGEN", i)
         procesamiento_img_haar(img, i)
+        fin = time.time()
+        tiempos.append(fin-inicio)
+
+    print('TIEMPO MEDIO POR IMAGEN', sum(tiempos)/len(imagenes))
 
 
 def main():
