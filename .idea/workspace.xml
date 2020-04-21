@@ -36,7 +36,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
-  <component name="RunManager" selected="Python.deteccion_video">
+  <component name="RunManager" selected="Python.deteccion_haar">
     <configuration name="deteccion_haar" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="practica_obligatoria_1" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -144,9 +144,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.deteccion_video" />
-        <item itemvalue="Python.deteccion_orb" />
         <item itemvalue="Python.deteccion_haar" />
+        <item itemvalue="Python.deteccion_orb" />
+        <item itemvalue="Python.deteccion_video" />
         <item itemvalue="Python.deteccion_orb (2)" />
         <item itemvalue="Python.deteccion_orb (1)" />
       </list>
